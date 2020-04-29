@@ -18,7 +18,7 @@ def setup():
     s.endShape(CLOSE)
     shape(s, 25, -240)
 def draw():
-    if (mousePressed == True):
+    if (mousePressed == True): # nie miało być na kliknięcie, a zaznaczenie - najechanie myszą
         text("K", width/2-80, height/2)
         text("M", width/2+80, height/2)
         fill(24, 200, 200)
@@ -35,11 +35,10 @@ def draw():
             text("M", width/2+80, height/2)
             fill(255)
             text("K", width/2-80, height/2)
-    if keyPressed == True:
-        fill(0)
+        fill(0) # warunki obowiązują dopóki wytabowane, nie ma potrzeby ich powielania
         if key == 'k' or key == 'K':
-            text("K", width/2-80, height/2)    
-    if keyPressed == True:
-        fill(0)
+            text("K", width/2-80, height/2)
         if key == 'm' or key == 'M':
             text("M", width/2+80, height/2)
+            
+# 1,5pkt
