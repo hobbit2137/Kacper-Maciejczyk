@@ -14,7 +14,7 @@ class Cat(Pet):
         return 'miau miau'
     def gimmePaw(self):
         image(loadImage("tygrys.jpeg"), random(-250, width-10), random(-250, height-10))
-    def __add__(self, other):
+    def __add__(self, other): # brak odejmowania
         return self.name[0]+ ' i ' + other.name[0]
 class Bunny(Pet):
     pass
@@ -44,3 +44,4 @@ def mouseClicked():
         pet.speak()
         if isinstance(pet, Cat): 
             pet.gimmePaw()
+# 1,25pkt głónie brak odejmowania
