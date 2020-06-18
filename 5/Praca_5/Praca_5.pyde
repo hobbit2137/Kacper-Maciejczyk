@@ -58,3 +58,5 @@ def keyReleased():
         p.left=0
     if keyCode == RIGHT:
         p.right=0
+
+# 2pkt, chociaż nie wiem który raz już widzę ten program...
