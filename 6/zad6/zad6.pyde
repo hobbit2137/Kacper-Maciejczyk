@@ -7,12 +7,9 @@ class Kwadrat():
         rect(self.x, self.y, self.bok, self.bok)
         
 class KolorowyKwadrat(Kwadrat):
-    def sketchKolorowy(self):
-        Kwadrat.sketch(self, x, y)
     def sketchKolorowy(self, x, y, kolory):
-         Kwadrat.sketch(self, x, y)
-         fill(random(200), 50, 50)
-         rect(self.x, self.y, self.bok, self.bok)
+         fill(random(200), 50, 50) # wypadałoby przywróćić późneij kolor pierwotny, bo teraz każda narysowana rzecz będzie w tym kolorze
+         Kwadrat.sketch(self, x, y) # nie ma potrzeby rysować jeszcze raz prostokąta, skoro tu już rysowany jest kwadrat
     
 def setup():
     size(500, 500)
@@ -21,4 +18,6 @@ def setup():
     malyKolorowyKwadrat.sketchKolorowy(random(143),268, 7) 
     duzyKolorowyKwadrat = KolorowyKwadrat(120.0)
     duzyKolorowyKwadrat.sketchKolorowy(random(275), 36, 15)
-    duzyKolorowyKwadrat.sketch(random(250), 300) 
+    duzyKolorowyKwadrat.sketch(random(250), 300)
+    
+# 1,5pkt
