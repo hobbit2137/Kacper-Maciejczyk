@@ -1,0 +1,5 @@
+Studio graficzne
+Klient: Chciałbym żeby logo bardziej rzucało się w oczy, jakieś płomienie, neony czy coś.
+Grafik: W takim razie dodam parę obiektów wektorowych, na których użyję efektów dyfuzji i solaryzacji, podbiję kontrast całego projektu oraz zmienię barwy oraz nasycenie gradientu, który zastosowałem w tle. Jeśli chodzi o płomienie, to zastosuję rozmycie radialne na wygenerowanej plamie, dokonam rasteryzacji oraz na koniec zmienię tryb kolorów na indeksowane. 
+WZORZEC: Fasada
+DLACZEGO: Klient posługuję się prostym, zrozumiałym dla niego językiem, a grafik specjalistycznym, którego znajomość jest wymagana by dokonać jakiejś zmiany, ponieważ grafik musi wiedzieć jak nazywa się które narzędzie w programie. Grafik jest fasadą, przyjmuje proste polecenia, a następnie tłumaczy je na skomplikowane procesy i wykonuje.
