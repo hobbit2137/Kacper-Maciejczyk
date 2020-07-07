@@ -35,23 +35,6 @@ class Customer():
         else:
             self.book = ""
             return False
-        
-class KacperM():
-    book = "" 
-    haveBook = False
-    def requestBook(self, book): 
-        print("Book You want to borrow is choosen.")
-        self.book = book
-        self.haveBook = True
-        return self.book
-    def returnBook(self): 
-        print("Book which you returning is {}".format(self.book))
-        if self.haveBook:
-            self.haveBook = False
-            return self.book
-        else:
-            self.book = ""
-            return False
 
 
 def setup():
@@ -60,7 +43,7 @@ def setup():
     books = ["Naocznosc", "Sens Sztuki", "Harry Potter", "Koralina"]
     library = Library(books) 
     Anna = Customer()
-    Kacper = KacperM()
+    Kacper = Customer()
     
 def draw():
     library.displayAvailableBooks()
@@ -74,31 +57,31 @@ def draw():
 def mouseClicked(): 
     if mouseX >100 and mouseX<200:
         if mouseY >10 and mouseY <30:
-            library.lendBook(Anna.requestBook("Naocznosc")) 
-        if mouseY >40 and mouseY <60:
-            library.addBook(Anna.returnBook())
-            
-def mouseClicked():
-    if mouseX >100 and mouseX<200:
-        if mouseY >10 and mouseY <30:
+            library.lendBook(Anna.requestBook("Naocznosc"))
             library.lendBook(Kacper.requestBook("Koralina")) 
         if mouseY >40 and mouseY <60:
+            library.addBook(Anna.returnBook())
             library.addBook(Kacper.returnBook())
             
 class ZadanieDziesiate(unittest.TestCase):
-
-    def KM(self):
-        self.Kacper = Customer()
+    
+    def test_KM_2(self): # nazwy testów powinny się zaczynać od test
+        Kacper = Customer() # to nie należy do klasy testów, tylko do klasy Customer, więc self (odniesienie do obecnej klasy - klasy testów) jest tu błędne
         books = ["Naocznosc", "Sens Sztuki", "Harry Potter"]
-        self.library = Library(books) 
+        library = Library(books) #testy powinny być od siebie niezależne i lepiej definiować obiekty w poszczególnych testach
+        library.lendBook(Kacper.requestBook("Harry Potter"))
+        self.assertEqual(["Naocznosc", "Sens Sztuki"], library.availableBooks)
+        self.assertEqual(Kacper.book, "Harry Potter")
+        self.assertTrue(Kacper.haveBook)
 
-
-    def KM_2(self):
-        self.library.lendBook(self.Kacper.requestBook("Harry Potter"))
-        self.assertEqual(["Naocznosc", "Sens Sztuki"], self.library.availableBooks)
-        self.assertEqual(self.Kacper.book, "Harry Potter")
-        self.assertTrue(self.Kacper.haveBook)
-
-    def KM_3(self):
-        self.library.addBook("Marsjanin")
-        self.assertEqual(["Naocznosc", "Sens Sztuki", "Harry Potter", "Marsjanin"], self.library.availableBooks)
+    def test_KM_3(self):
+        Kacper = Customer()
+        books = ["Naocznosc", "Sens Sztuki", "Harry Potter"]
+        library = Library(books)
+        library.addBook("Marsjanin")
+        self.assertEqual(["Naocznosc", "Sens Sztuki", "Harry Potter", "Marsjanin"], library.availableBooks)
+        
+if __name__ == '__main__':
+    unittest.main()
+    
+#1,5pkt
